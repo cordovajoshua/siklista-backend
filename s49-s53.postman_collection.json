@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "037e2140-a073-43c7-b362-30f5b2d57aba",
+		"name": "s49-s53",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19699561"
+	},
+	"item": [
+		{
+			"name": "loginUser - ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@mail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser - NONADMIN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user@mail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "checkEmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"asdf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/checkEmail"
+			},
+			"response": []
+		},
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user2@mail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "registerUser2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user2@mail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "getProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1NzY1MjJ9.vMaEizHktVeqmjFWMGOPwcKDAVU3PkD591Fcj3Z8WbI"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/users/userDetails"
+			},
+			"response": []
+		},
+		{
+			"name": "addProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTJlYzY4NTI5YTczNjgxYmIwNSIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTk1NzU3Nzd9.HQM29ZYU94gvqkhyiTU9o5zL26DAkIj5pcjekeFnCOs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ryzen 7 3200G\",\n    \"description\": \"Ryzen Gaming Processor\",\n    \"price\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/products"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/products/all"
+			},
+			"response": []
+		},
+		{
+			"name": "getActiveProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODM0MDd9.JTpQDI5vwRwzZBhhVMWWLdu7Ff99b-tTsordZ2gdRA8"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/products"
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/products/654c2d24657ee5dabf60f3d9"
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGIzNDg2NmIwNTBlMjg4ZmY0NDI1MiIsImVtYWlsIjoiam9zaEBtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5OTUwNjg5NX0.R--xRTJ_cYuU2-QeDZYMGDutWWJplitVd1rgYAUjIto"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"LG Ultrawide Monitor\",\n    \"price\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/products/654c2b6c25f5e2c7dabac852"
+			},
+			"response": []
+		},
+		{
+			"name": "activateProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGIzNDg2NmIwNTBlMjg4ZmY0NDI1MiIsImVtYWlsIjoiam9zaEBtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5OTUwNjg5NX0.R--xRTJ_cYuU2-QeDZYMGDutWWJplitVd1rgYAUjIto"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"GK85 Langtu\",\n    \"price\": 300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/products/654c2b6c25f5e2c7dabac852/activate"
+			},
+			"response": []
+		},
+		{
+			"name": "archiveProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGIzNDg2NmIwNTBlMjg4ZmY0NDI1MiIsImVtYWlsIjoiam9zaEBtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5OTQ5MTAxNn0.8cS0a4zqPGOWiTLeczT950S-RMZWmkHD6R86JFYDSMU"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"GK85 Langtu\",\n    \"price\": 300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/products/654c2b6c25f5e2c7dabac852/archive"
+			},
+			"response": []
+		},
+		{
+			"name": "checkout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODIyMTl9.f25xOzwM7EHnn2sh6UfGN-9o6CAlYiqvJm4LhqfB2Us"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [\n        {\n            \"productId\": \"654d799d4b6afa57ca301db2\",\n            \"quantity\": 3\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/users/checkout"
+			},
+			"response": []
+		},
+		{
+			"name": "allOrders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTJlYzY4NTI5YTczNjgxYmIwNSIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTk1ODU2MzN9.wjeRFWf6_2_1LEioS0N8vtvmw6nrCnaSz-4lR-xLefI"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/users/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "userAuth - orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODU1OTl9.MNL2rb7RRwHxeYvSYJGtdOhDYdWfIqGImeP9cOX1KhA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/users/myOrders"
+			},
+			"response": []
+		},
+		{
+			"name": "makeAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTJlYzY4NTI5YTczNjgxYmIwNSIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTk1ODMwOTZ9.esHdCmVEU3OKWYhGHDMOeXd9Ig8cOiVKn75psYUnv9k"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:4000/users/654d7de72795c1ebeb623ce7/setAsAdmin"
+			},
+			"response": []
+		},
+		{
+			"name": "addToCart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODkyMzF9.JKTEiWO7cgC8fUI1rh1MwbBCcPV7kM_BuW4wBE5hccU"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": \"654d77ef63e1db0a46f49308\",\n    \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/cart/add"
+			},
+			"response": []
+		},
+		{
+			"name": "removeFromCart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODkyMzF9.JKTEiWO7cgC8fUI1rh1MwbBCcPV7kM_BuW4wBE5hccU"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": \"654d77ef63e1db0a46f49308\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/cart/remove"
+			},
+			"response": []
+		},
+		{
+			"name": "getCart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGQzMTBiYzY4NTI5YTczNjgxYmIwMCIsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2OTk1ODkyMzF9.JKTEiWO7cgC8fUI1rh1MwbBCcPV7kM_BuW4wBE5hccU"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/cart/"
+			},
+			"response": []
+		}
+	]
+}
