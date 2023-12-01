@@ -12,16 +12,16 @@ const port = 4003;
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // MONGOOSE CONNECTION
 connectDB()
-.then(() => console.log('DB connection successful'))
-.catch(err => console.log(err))
+  .then(() => console.log('DB connection successful'))
+  .catch((err) => console.log(err));
 
 async function connectDB() {
-  await mongoose.connect('mongodb+srv://admin:admin@zuitt-bootcamp.fg8uhjl.mongodb.net/ecommerce?retryWrites=true&w=majority');
+  await mongoose.connect(process.env.DB_URL);
 }
 
 // ROUTES
@@ -31,9 +31,9 @@ app.use('/b3/products', productRoutes);
 app.use('/b3/cart', cartRoutes);
 
 if (require.main === module) {
-    app.listen(process.env.PORT || port, () => {
-        console.log(`API is now online on port ${process.env.PORT || port}`);
-    })
+  app.listen(process.env.PORT || port, () => {
+    console.log(`API is now online on port ${process.env.PORT || port}`);
+  });
 }
 
-module.exports = {app, mongoose};
+module.exports = { app, mongoose };
